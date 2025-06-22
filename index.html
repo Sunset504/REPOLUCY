@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Repostería Lucy</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* Reset básico */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background: #fff8f5;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #f27a86;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: white;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: opacity 0.3s ease;
+        }
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+
+        /* Espacio para que el contenido no quede oculto bajo el header fijo */
+        main {
+            padding-top: 70px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        
+
+.banner {
+    background: linear-gradient(rgba(255, 182, 193, 0.6), rgba(255, 182, 193, 0.6)), 
+        url('images/postres-fondo.jpg') center/cover no-repeat;
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 0 50px 50px;
+}
+
+        /* Cambios para banner */
+.banner h2 {
+    font-size: 2rem; /* Más pequeño */
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+.banner p {
+    font-size: 1rem; /* Más pequeño */
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    color: #ffe8e9;
+}
+.banner .sub-text {
+    font-size: 0.9rem;
+    color: #ffccd1;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+.banner .btn-secondary {
+    background-color: transparent;
+    color: #fff1f3;
+    border: 2px solid #fff1f3;
+    padding: 12px 30px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+.banner .btn-secondary:hover {
+    background-color: #fff1f3;
+    color: #f27a86;
+}
+
+        .btn-primary {
+            background-color: #fff1f3;
+            color: #f27a86;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            background-color: #f27a86;
+            color: white;
+        }
+
+        /* Sección Productos */
+        #productos {
+            padding: 60px 0;
+            text-align: center;
+        }
+        #productos h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #f27a86;
+        }
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .producto-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .producto-card:hover {
+            transform: translateY(-10px);
+        }
+        .producto-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .producto-info {
+            padding: 20px;
+        }
+        .producto-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin: 0 0 10px;
+            color: #f27a86;
+        }
+        .producto-info p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Sección Nosotros */
+        #nosotros {
+            padding: 60px 20px;
+            background-color: #fff1f3;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(242, 122, 134, 0.3);
+        }
+        #nosotros img {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 20px;
+            margin-right: 40px;
+            flex-shrink: 0;
+        }
+        #nosotros .texto {
+            flex: 1;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Sección Mapa */
+        #ubicacion {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        #ubicacion h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #f27a86;
+        }
+        #mapa {
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: none;
+        }
+
+        /* Sección Redes Sociales */
+        #redes {
+            background-color: #f27a86;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        #redes h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 2.4rem;
+        }
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #fff1f3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            background-color: #f7a6b0;
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #nosotros {
+                flex-direction: column;
+            }
+            #nosotros img {
+                margin: 0 0 20px 0;
+                max-width: 100%;
+            }
+            nav a {
+                margin-left: 15px;
+                font-size: 0.9rem;
+            }
+            .banner h2 {
+                font-size: 2rem;
+            }
+            .btn-primary {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <!-- Iconos para redes -->
+    <script src="https://kit.fontawesome.com/1e77604c18.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Repostería Lucy</h1>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="Restaurant-Menu.html">Productos</a>
+                <a href="Acerca-de.html">Nosotros</a>
+                <a href="Contacto.html">Contacto</a>
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#redes">Redes</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="inicio">
+        <section class="banner" role="banner" aria-label="Banner principal">
+    <h2>Dulzura que enamora</h2>
+    <p>Descubre nuestros pasteles, galletas y postres artesanales hechos con amor.</p>
+    <p class="sub-text">Cada bocado es una experiencia única que alegrará tus momentos especiales.</p>
+    <a href="Restaurant-Menu.html" class="btn-primary">Ver productos</a>
+    <a href="#nosotros" class="btn-secondary">Conócenos</a>
+</section>
+
+
+        <section id="productos" aria-labelledby="productos-titulo">
+            <h3 id="productos-titulo">Lo mas vendido</h3>
+            <div class="productos-grid">
+                <article class="producto-card" tabindex="0">
+                    <img src="images/reposteria-3-1.jpg" alt="Pastel de fresas" />
+                    <div class="producto-info">
+                        <h4>Pastel de fresas</h4>
+                        <p>Suave bizcocho relleno de crema y fresas frescas.</p>
+                    </div>
+                </article>
+
+                <article class="producto-card" tabindex="0">
+                    <img src="images/cupcake.jpg" alt="Cupcake de vainilla" />
+                    <div class="producto-info">
+                        <h4>Cupcake de Ferrero</h4>
+                        <p>Delicado cupcake con frosting de Ferrero.</p>
+                    </div>
+                </article>
+
+                <article class="producto-card" tabindex="0">
+                    <img src="images/galletas.jpg" alt="Galletas decoradas" />
+                    <div class="producto-info">
+                        <h4>Galletas decoradas</h4>
+                        <p>Variedad de galletas artesanales decoradas a mano.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="nosotros" aria-labelledby="nosotros-titulo">
+            <img src="images/reposteria-lucy.jpg" alt="Interior de la repostería Lucy" />
+            <div class="texto">
+                <h3 id="nosotros-titulo">Nosotros</h3>
+                <p>
+                    En Repostería Lucy nos dedicamos a crear momentos dulces con productos elaborados
+                    artesanalmente, usando ingredientes frescos y recetas tradicionales. La calidad y
+                    la satisfacción de nuestros clientes son nuestra prioridad.
+                </p>
+            </div>
+        </section>
+
+        <section id="ubicacion" aria-labelledby="ubicacion-titulo">
+            <h3 id="ubicacion-titulo">Nuestra Ubicación</h3>
+            <iframe id="mapa"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.2040636862693!2d-99.13320868467393!3d19.432607486892366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff4dcb58f44d%3A0x1c8724b3112e7a5a!2sZ%C3%B3calo%20de%20Ciudad%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1687062393497!5m2!1ses!2smx"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de la ubicación"></iframe>
+        </section>
+
+        <section id="redes" aria-label="Redes sociales">
+            <h3>Síguenos en redes sociales</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/reposterialucy" target="_blank" aria-label="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/reposterialucy" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com/reposterialucy" target="_blank" aria-label="Twitter"><i
+                        class="fab fa-twitter"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Repostería Lucy - Todos los derechos reservados
+    </footer>
+</body>
+
+</html>
